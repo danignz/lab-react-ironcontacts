@@ -13,6 +13,14 @@ function App() {
           <th>Picture</th>
           <th>Name</th>
           <th>Popularity</th>
+          <th>
+            Won <br />
+            Oscar
+          </th>
+          <th>
+            Won <br />
+            Emmy
+          </th>
         </tr>
         {contacts.map((elem) => {
           return (
@@ -26,6 +34,8 @@ function App() {
               </td>
               <td>{elem.name}</td>
               <td>{elem.popularity.toFixed(2)}</td>
+              <td>{elem.wonOscar && "🏆"}</td>
+              <td>{elem.wonEmmy && "🏆"}</td>
             </tr>
           );
         })}
