@@ -32,6 +32,11 @@ function App() {
     setContacts(ordered);
   };
 
+  const handleDelete = (id) => {
+    const remaining = contacts.filter((elem) => elem.id !== id);
+    setContacts(remaining);
+  };
+
   return (
     <div className="App">
       <h1>IronContacts</h1>
@@ -54,6 +59,7 @@ function App() {
               Won <br />
               Emmy
             </th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -71,6 +77,9 @@ function App() {
                 <td>{elem.popularity.toFixed(2)}</td>
                 <td>{elem.wonOscar && "🏆"}</td>
                 <td>{elem.wonEmmy && "🏆"}</td>
+                <td>
+                  <button onClick={() => handleDelete(elem.id)}>Delete</button>
+                </td>
               </tr>
             );
           })}
